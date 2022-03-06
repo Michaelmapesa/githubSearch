@@ -1,1 +1,32 @@
+<div *ngIf="profile">
+    <div class="panel panel1-default">
+        <div class="panel1-heading">
+            {{profile.name}}<small>({{profile.login}})</small>
+            , works at {{profile.company}}
+            {{profile.location}}
 
+        </div>
+        <div class="panel1-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <img src="{{profile.avatar_url}}" class="img-circle img-responsive" alt="profile image">
+
+                </div>
+
+                <div class="col-sm-5">
+                    <div class="list-group">
+                        <li class="list-group-items" *ngIf="profile.bio">{{profile.bio}}</li>
+                        <li class="list-group-items" *ngIf="profile.hireable">available for hire</li>
+                        <li class="list-group-items" *ngIf="profile.blog">{{profile.blog}}</li>
+                        <li class="list-group-items" *ngIf="profile.email">{{profile.email}}</li>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
