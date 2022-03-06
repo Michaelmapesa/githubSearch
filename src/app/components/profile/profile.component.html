@@ -1,3 +1,16 @@
+<p class="h3">Enter Github Name You Want To Search </p>
+
+    <form action="" class="search-form">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search username" 
+            [(ngModel)]="username" name="username" (keyup)="findProfile()">
+    
+        </div>
+    
+    </form>
+
+
+
 <div *ngIf="profile">
     <div class="panel panel1-default">
         <div class="panel1-heading">
@@ -13,13 +26,43 @@
 
                 </div>
 
-                <div class="col-sm-5">
+                <div class="col-sm-3">
                     <div class="list-group">
                         <li class="list-group-items" *ngIf="profile.bio">{{profile.bio}}</li>
                         <li class="list-group-items" *ngIf="profile.hireable">available for hire</li>
-                        <li class="list-group-items" *ngIf="profile.blog">{{profile.blog}}</li>
-                        <li class="list-group-items" *ngIf="profile.email">{{profile.email}}</li>
+                        <li class="list-group-items" *ngIf="profile.blog"><a href="{{profile.blog}}" target="blank">{{profile.blog}}</a>
+                        </li>
+                        <li class="list-group-items" *ngIf="profile.email"><a href=" emailto:{{profile.email}}">{{profile.email}}</a></li>
+                        
 
+                    </div>
+
+                </div>
+
+                <div class="col-sm-5">
+                    <div>
+                        <p>
+                            <span class="label label-default">{{profile.followers}} Followers</span>
+                            <span class="label label-primary">Followings {{profile.following}}</span>
+                            <span class="label label-success">{{profile.public_gists}} Public gists</span>
+                            <span class="label label-info">{{profile.public_repos}} Public repos</span>
+                        </p>
+                        <p>
+                            <a href="{{profile.html_url}}" target="_blank" class="btn btn-success btn-sm">View on github</a>
+
+                        </p>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Repos</h3>
+                            </div>
+                            <p class="panel-body clear-fix" *ngFor="let repo of repos">
+                                {{repo.name}}<a href="{{repo.html_url}}" target="_blank" class="btn btn-sm btn-warning pull-right">View on github</a>
+                            </p>    
+                                <p>{{repos.description}}</p>
+
+                            
+
+                        </div>
                     </div>
 
                 </div>
