@@ -33,12 +33,12 @@ export class HomeComponent implements OnInit {
 
   name: string = '';
   searchUser() {
-    this.userRequestService.userRequest(this.url, 'davidkiama');
+    this.userRequestService.userRequest(this.url, 'Michaelmapesa');
     this.user = this.userRequestService.user;
 
     //the repos request took loonger to respond hence the timeout
 
-    this.repoRequestService.repoRequest(this.url, 'davidkiama');
+    this.repoRequestService.repoRequest(this.url, 'Michaelmapesa');
     setTimeout(() => {
       this.repos = this.repoRequestService.repos;
 
