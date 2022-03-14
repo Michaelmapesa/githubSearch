@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
 import { User } from '../user-class/user';
 import { Repo } from '../repo-class/repo';
 
@@ -15,12 +14,12 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements OnInit {
-  users: User[];
-  user: User;
+  users: User[] = [];
+  user: User | undefined;
 
   url: string = environment.userUrl;
   username: string = '';
-  repos: Repo[];
+  repos: Repo[] = [];
 
   constructor(
     private userRequestService: UserRequestService,
